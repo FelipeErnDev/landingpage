@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Dra. Vanessa | Nutricionista em Florianópolis - Emagrecimento e Nutrição</title>
+        <title>Dra. Vanessa Lenzi | Nutricionista em Florianópolis - Emagrecimento e Nutrição</title>
         <meta
           name="description"
           content="Nutricionista especialista em emagrecimento em Florianópolis. Atendimento humanizado para perda de peso, reeducação alimentar e saúde metabólica. Sessões presenciais e online. Agende pelo WhatsApp."
@@ -22,7 +22,7 @@ const Index = () => {
           name="keywords"
           content="nutricionista Florianópolis, nutricionista SC, emagrecimento, nutrição, reeducação alimentar, perda de peso"
         />
-        <meta property="og:title" content="Dra. Vanessa | Nutricionista em Florianópolis" />
+        <meta property="og:title" content="Dra. Vanessa Lenzi | Nutricionista em Florianópolis" />
         <meta
           property="og:description"
           content="Atendimento nutricional humanizado em Florianópolis. Cuide da sua saúde e bem-estar com profissionalismo e acolhimento."

@@ -33,7 +33,7 @@ const Header = () => {
       <nav className="container-wide px-4 md:px-8 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-serif text-xl font-semibold text-foreground">
-          Dra. Vanessa
+          Dra. Vanessa Lenzi
         </a>
 
         {/* Desktop Navigation */}

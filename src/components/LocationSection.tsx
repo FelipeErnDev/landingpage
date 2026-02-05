@@ -1,8 +1,9 @@
-import { MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation, Car, MapPinOff, Accessibility } from "lucide-react";
 
 const LocationSection = () => {
-  const address = "Centro, Florianópolis - SC";
-  const mapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.5789!2d-48.548!3d-27.5969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sFlorinanopolis%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr";
+  const address = "Rua Tenente Silveira, 225, Centro, Florianópolis - SC, 88010-300";
+  // Coordenadas de Florianópolis, Centro
+  const mapsUrl = "https://www.google.com/maps?q=-27.5975,-48.5461&z=15&output=embed";
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 
   return (
@@ -45,19 +46,25 @@ const LocationSection = () => {
                 </div>
                 
                 <h3 className="font-serif text-xl font-medium text-foreground">
-                  Consultório Florianópolis
+                  Dr Vítor Elpídio Estética Avançada
                 </h3>
                 
                 <address className="mt-4 not-italic text-muted-foreground leading-relaxed">
-                  <p className="font-medium text-foreground">Centro</p>
-                  <p>Florianópolis - SC</p>
-                  <p>CEP: 88.015-000</p>
+                  <p className="font-medium text-foreground">Rua Tenente Silveira, 225</p>
+                  <p>Centro - Florianópolis - SC</p>
+                  <p>CEP: 88.010-300</p>
                 </address>
 
                 <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  <p>🚗 Fácil acesso e estacionamento próximo</p>
-                  <p>🏖️ Região central de Florianópolis</p>
-                  <p>♿ Acessibilidade para cadeirantes</p>
+                  <p className="flex items-center gap-2">
+                    <Car className="h-4 w-4" /> Fácil acesso e estacionamento próximo
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4" /> Região central de Florianópolis
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <Accessibility className="h-4 w-4" /> Acessibilidade para cadeirantes
+                  </p>
                 </div>
               </div>
 

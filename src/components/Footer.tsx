@@ -10,14 +10,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <h3 className="font-serif text-2xl font-semibold text-background">
-              Dra. Vanessa
+              Dra. Vanessa Lenzi
             </h3>
             <p className="mt-2 text-sm">
-              Nutricionista | CRN 06/123456
+              Nutricionista Especialista
             </p>
             <p className="mt-4 text-sm leading-relaxed max-w-md">
-              Atendimento nutricional humanizado em Florianópolis. 
-              Cuidando da sua saúde e bem-estar com ética, respeito e profissionalismo.
+              Atendimento online e presencial em Florianópolis. Nutrição Funcional, Esportiva, Clínica e Estética com abordagem científica e humanizada.
             </p>
           </div>
 
@@ -69,10 +68,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-center md:text-left">
-            © {currentYear} Dra. Vanessa. Todos os direitos reservados.
-          </p>
-          <p className="text-sm flex items-center gap-1">
-            Feito com <Heart className="h-4 w-4 text-accent fill-accent" /> em São Paulo
+            © {currentYear} Dra. Vanessa Lenzi. Todos os direitos reservados.
           </p>
         </div>
       </div>

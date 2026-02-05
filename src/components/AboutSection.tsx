@@ -1,5 +1,5 @@
-import profileImage from "@/assets/psychologist-profile.jpg";
-import { Award, GraduationCap, Heart } from "lucide-react";
+import profileImage from "@/assets/vanessa.jpeg";
+import { MessageCircle } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -26,57 +26,20 @@ const AboutSection = () => {
             </span>
             
             <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl text-balance">
-              Dra. Vanessa
+              Dra. Vanessa Lenzi
             </h2>
             
             <p className="mt-2 text-lg text-primary font-medium">
-              CRN 06/123456
+              Nutricionista Especialista
             </p>
 
             <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
-              Sou nutricionista especialista em emagrecimento há mais de 10 anos, dedicada a ajudar 
-              você a alcançar seus objetivos de saúde e bem-estar. Acredito que cada pessoa é única 
-              e merece um plano nutricional personalizado, respeitando seu estilo de vida e preferências.
+              Sou Nutricionista especialista em Nutrição Funcional, Esportiva, Clínica, Estética e Emagrecimento. Nos últimos meses já acompanhei mais de 300 pacientes no uso estratégico da Tirzepatida (Mounjaro), ajudando cada um deles a emagrecer com segurança, preservar massa magra e transformar a relação com a comida.
             </p>
 
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Minha abordagem combina nutrição científica com comportamento alimentar saudável, 
-              oferecendo ferramentas práticas e sustentáveis para perda de peso, saúde metabólica 
-              e melhora da qualidade de vida.
+              Ao perceber o quanto um acompanhamento correto faz diferença nos resultados e como muitas pessoas usam esses medicamentos sem orientação adequada, decidi reunir todo o meu conhecimento prático e clínico em um material completo, direto e pensado para pessoas como você.
             </p>
-
-            {/* Credentials */}
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background shadow-card">
-                <GraduationCap className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-medium text-foreground text-sm">Formação</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    USP - Nutrição
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background shadow-card">
-                <Award className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-medium text-foreground text-sm">Especialização</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Emagrecimento - PUC-SP
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background shadow-card">
-                <Heart className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-medium text-foreground text-sm">Experiência</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    +10 anos
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
