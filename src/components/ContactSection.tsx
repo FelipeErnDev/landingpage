@@ -2,13 +2,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
-  email: z.string().trim().email("Email inválido").max(255, "Email muito longo"),
   message: z.string().trim().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000, "Mensagem muito longa"),
 });
 
@@ -19,7 +18,6 @@ const ContactSection = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     message: "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -41,15 +39,19 @@ const ContactSection = () => {
     try {
       const validatedData = contactSchema.parse(formData);
       
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Create WhatsApp message with name and message
+      const whatsappMessage = `Olá! Me chamo ${validatedData.name},\n\n${validatedData.message}`;
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, "_blank");
       
       toast({
-        title: "Mensagem enviada!",
-        description: "Entrarei em contato em breve. Obrigada!",
+        title: "Redirecionando para WhatsApp!",
+        description: "Você será redirecionado para continuar a conversa.",
       });
       
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", message: "" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: { [key: string]: string } = {};
@@ -65,7 +67,7 @@ const ContactSection = () => {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Gostaria de mais informações.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
   return (
     <section id="contato" className="section-padding bg-secondary/30">
@@ -96,32 +98,9 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground">WhatsApp</h4>
-                  <p className="text-sm text-muted-foreground">(11) 99999-9999</p>
+                  <p className="text-sm text-muted-foreground">Clique aqui para conversar</p>
                 </div>
               </a>
-
-              <a
-                href="mailto:vanessalenzibuquete@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-xl bg-background shadow-card hover:shadow-card-hover transition-all duration-300 group"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h4 className="font-medium text-foreground">E-mail</h4>
-                  <p className="text-sm text-muted-foreground">vanessalenzibuquete@gmail.com</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-background shadow-card">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <div>
-                  <h4 className="font-medium text-foreground">Telefone</h4>
-                  <p className="text-sm text-muted-foreground">(11) 3456-7890</p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -152,24 +131,6 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    E-mail
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={errors.email ? "border-destructive" : ""}
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-destructive">{errors.email}</p>
-                  )}
-                </div>
-
-                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Mensagem
                   </label>
@@ -192,14 +153,7 @@ const ContactSection = () => {
                   disabled={isLoading}
                   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-6"
                 >
-                  {isLoading ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Enviar mensagem
-                    </>
-                  )}
+                  {isLoading ? "Enviando..." : "Enviar mensagem"}
                 </Button>
               </div>
             </form>
