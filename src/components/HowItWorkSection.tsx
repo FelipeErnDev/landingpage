@@ -1,4 +1,4 @@
-import { Monitor, MapPin, Clock, CalendarCheck } from "lucide-react";
+import { Monitor, CalendarCheck, MapPin } from "lucide-react";
 
 const steps = [
   {
@@ -9,12 +9,7 @@ const steps = [
   {
     icon: MapPin,
     title: "Escolha a modalidade",
-    description: "Atendimento presencial em São Paulo (Pinheiros) ou online via plataforma segura.",
-  },
-  {
-    icon: Clock,
-    title: "Duração da sessão",
-    description: "Cada sessão tem duração de 1 hora, com frequência conforme sua necessidade e objetivos.",
+    description: "Atendimento presencial em Florianópolis ou online via plataforma segura.",
   },
   {
     icon: Monitor,
@@ -41,7 +36,7 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Steps */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 lg:grid-cols-3 justify-center">
           {steps.map((step, index) => (
             <div
               key={step.title}
@@ -50,7 +45,7 @@ const HowItWorksSection = () => {
             >
               {/* Connector line for desktop */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-border" />
+                <div className="hidden lg:block absolute top-8 left-1/2 w-full h-1 bg-border" />
               )}
               
               <div className="relative z-10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-background border-2 border-primary text-primary shadow-card">
